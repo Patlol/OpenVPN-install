@@ -61,8 +61,8 @@ newclient () {
 		homeDir="/home/$1"
 	elif [ ${SUDO_USER} ]; then  # if not, use SUDO_USER
 		homeDir="/home/${SUDO_USER}"
-	else  # if not, use /root
-		homeDir="~"
+	else  # if not SUDO_USER, use /root
+		homeDir="/root"
 	fi
 	# Generates the custom client.ovpn
 	cp /etc/openvpn/client-template.txt $homeDir/$1.ovpn
